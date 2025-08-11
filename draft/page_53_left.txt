@@ -1,0 +1,167 @@
+📄 الصورة: page_53_left.jpg
+🕒 التاريخ: 2025-07-31 00:29:04.161934
+
+🧠 النص المستخرج:
+10. إذا كان س/ص = 1/10 فإن (2000س + 10ص) / (60س + ص)
+أ. 3.0
+ب. 4.0
+ج. 5.0
+د. 6.0
+
+11. إذا كان س < 1 فقارن بين
+القيمة الأولى: (س-1) / (س(س-1))
+القيمة الثانية: 1
+
+12. إذا كان 1/س = 2/ص ، س + ص = 3 ما قيمة س
+أ. 1
+ب. 2
+ج. 3
+د. 4
+
+13. إذا كان س = 4 قارن
+القيمة الأولى: 8 / (3س)
+القيمة الثانية: 4 / (2+س)
+
+14. إذا كان 1/س + س/س + س²/س + ... + (س^(ن-1))/س = (س^ن - 1)/س
+أ. 1/س
+ب. ن/س
+ج. 1/س
+د. 1
+
+15. إذا كان س + 1/س = 4 فما قيمة س ؟
+أ. 3,7
+ب. 4,5
+ج. 5
+د. 5,5
+
+16. علبة حليب سعتها 250 ملم نريد تعبئتها في جالونين وسعة ثلث الجالون 750 ملم ، كم علبة نحتاج لتعبئة الجالونين
+أ. 9
+ب. 18
+ج. 27
+د. 3
+
+17. خزان وزنه وهو فارغ 550 كجم إذا ملئ للربع يكون وزنه 750 كجم أحسب وزنه بالكيلوجرام إذا ملئ للنصف
+أ. 1000
+ب. 400
+ج. 950
+د. 200
+
+18. أحمد ومحمد مرتبهما متساوي فإذا أنفق محمد 3/4 ما معه
+وما تبقي مع أحمد 1/3 فقارن بين
+| القيمة الأولى | القيمة الثانية |
+| ما تبقي مع محمد | ما تبقي مع أحمد |
+
+19. إذا كانت 1/س + س/س = (1+س²)/س فإن س =
+أ. 1
+ب. -1
+ج. 2
+د. جميع الأعداد ما عدا صفر
+
+🧮 LaTeX:
+بالتأكيد، إليك المعادلات والتعابير الرياضية محولة إلى صيغة LaTeX:
+
+```latex
+\documentclass{article}
+\usepackage{amsmath} % For advanced math environments and commands
+\usepackage{amsfonts} % For mathematical fonts (e.g., blackboard bold)
+\usepackage{amssymb} % For mathematical symbols
+
+% For Arabic text, you would typically use XeLaTeX or LuaLaTeX compiler
+% and uncomment the following lines:
+% \usepackage{polyglossia}
+% \setmainlanguage{arabic}
+% \setotherlanguage{english}
+% \newfontfamily{\arabicfont}{Amiri}[
+%     Script=Arabic,
+%     ContextualDigits=Full,
+%     UprightFont=*,
+%     BoldFont=*Bold,
+%     ItalicFont=*Slanted,
+%     BoldItalicFont=*BoldSlanted
+% ]
+
+\begin{document}
+
+\begin{enumerate}
+
+\item إذا كان $\frac{س}{ص} = \frac{1}{10}$ فإن $\frac{(2000س + 10ص)}{(60س + ص)}$
+    \begin{itemize}
+        \item[أ.] 3.0
+        \item[ب.] 4.0
+        \item[ج.] 5.0
+        \item[د.] 6.0
+    \end{itemize}
+
+\item إذا كان $س < 1$ فقارن بين
+    \begin{itemize}
+        \item القيمة الأولى: $\frac{(س-1)}{(س(س-1))}$
+        \item القيمة الثانية: $1$
+    \end{itemize}
+
+\item إذا كان $\frac{1}{س} = \frac{2}{ص}$ ، $س + ص = 3$ ما قيمة $س$
+    \begin{itemize}
+        \item[أ.] 1
+        \item[ب.] 2
+        \item[ج.] 3
+        \item[د.] 4
+    \end{itemize}
+
+\item إذا كان $س = 4$ قارن
+    \begin{itemize}
+        \item القيمة الأولى: $\frac{8}{(3س)}$
+        \item القيمة الثانية: $\frac{4}{(2+س)}$
+    \end{itemize}
+
+\item إذا كان $\frac{1}{س} + \frac{س}{س} + \frac{س^2}{س} + ... + \frac{س^{ن-1}}{س} = \frac{س^ن - 1}{س}$
+    \begin{itemize}
+        \item[أ.] $\frac{1}{س}$
+        \item[ب.] $\frac{ن}{س}$
+        \item[ج.] $\frac{1}{س}$
+        \item[د.] $1$
+    \end{itemize}
+
+\item إذا كان $س + \frac{1}{س} = 4$ فما قيمة $س$ ؟
+    \begin{itemize}
+        \item[أ.] 3,7
+        \item[ب.] 4,5
+        \item[ج.] 5
+        \item[د.] 5,5
+    \end{itemize}
+
+\item علبة حليب سعتها 250 ملم نريد تعبئتها في جالونين وسعة ثلث الجالون 750 ملم ، كم علبة نحتاج لتعبئة الجالونين
+    \begin{itemize}
+        \item[أ.] 9
+        \item[ب.] 18
+        \item[ج.] 27
+        \item[د.] 3
+    \end{itemize}
+
+\item خزان وزنه وهو فارغ 550 كجم إذا ملئ للربع يكون وزنه 750 كجم أحسب وزنه بالكيلوجرام إذا ملئ للنصف
+    \begin{itemize}
+        \item[أ.] 1000
+        \item[ب.] 400
+        \item[ج.] 950
+        \item[د.] 200
+    \end{itemize}
+
+\item أحمد ومحمد مرتبهما متساوي فإذا أنفق محمد $\frac{3}{4}$ ما معه
+    وما تبقي مع أحمد $\frac{1}{3}$ فقارن بين
+    \begin{tabular}{|c|c|}
+    \hline
+    القيمة الأولى & القيمة الثانية \\
+    \hline
+    ما تبقي مع محمد & ما تبقي مع أحمد \\
+    \hline
+    \end{tabular}
+
+\item إذا كانت $\frac{1}{س} + \frac{س}{س} = \frac{(1+س^2)}{س}$ فإن $س =$
+    \begin{itemize}
+        \item[أ.] 1
+        \item[ب.] -1
+        \item[ج.] 2
+        \item[د.] جميع الأعداد ما عدا صفر
+    \end{itemize}
+
+\end{enumerate}
+\end{document}
+```

@@ -1,0 +1,124 @@
+📄 الصورة: page_2_right.jpg
+🕒 التاريخ: 2025-07-30 23:46:20.758160
+
+🧠 النص المستخرج:
+دورات المعاصر
+iqdr.com
+بثوث مباشرة
+
+قدرات كمي
+تأسيس و محوسب
+✓ شرح اساسيات القدرات من الصفر و حتى الاحت
+✓ واجبات يومية مع الحلول النموذجية
+✓ شرح نماذج المحوسب كاملة مع التحديث و الإد
+✓ شرح اساسيات التحصيلي رياضيات - فيزياء -
+✓ اختبارات الكترونية محاكية لقياس في جميع الـ
+✓ قسم مجاني للتدريب و قياس المستوى
+✓ قسم مجاني خاص بنماذج المختبرين اليومية مع
+
+النماذج اليومية للمختبرين
+
+النماذج
+اليومية
+للمختبرين
+الاختبارات المحاكية
+لقياس
+قدرات كمي
+www.tiqdr.com
+
+متوافق مع نظام
+
+🧮 LaTeX:
+بالتأكيد، إليك تحويل النص والتعابير إلى LaTeX. لاحظ أنه لإنشاء هذا المستند بشكل صحيح، ستحتاج إلى مترجم LaTeX يدعم اللغة العربية بشكل جيد مثل `XeLaTeX` أو `LuaLaTeX`، مع استخدام حزمة `polyglossia` وخط عربي مناسب.
+
+```latex
+% يجب تجميع هذا المستند باستخدام XeLaTeX أو LuaLaTeX للحصول على أفضل دعم للغة العربية.
+\documentclass{article}
+
+% دعم اللغة العربية
+\usepackage{polyglossia}
+\setdefaultlanguage[locale=default]{arabic}
+\setotherlanguage{english} % لدعم الروابط الإنجليزية
+\newfontfamily\arabicfont[Script=Arabic]{Amiri} % يمكنك استبدال 'Amiri' بأي خط عربي آخر مثل Noto Sans Arabic, Scheherazade, إلخ.
+
+% لدعم الروابط
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+}
+
+% لدعم علامة الصح (checkmark)
+\usepackage{amsfonts} % توفر \checkmark
+
+% لإعداد الهوامش والتنسيق العام
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{amsmath} % مفيد للرياضيات، على الرغم من عدم استخدامه مباشرة هنا
+
+\begin{document}
+
+% عنوان الجزء الأول
+\begin{center}
+    \textbf{دورات المعاصر} \\
+    \url{iqdr.com} \\
+    بثوث مباشرة
+\end{center}
+
+\vspace{1cm} % مسافة رأسية
+
+% قسم قدرات كمي
+\section*{قدرات كمي}
+\subsection*{تأسيس و محوسب}
+
+\begin{itemize}
+    \item[\checkmark] شرح اساسيات القدرات من الصفر و حتى الاحتراف
+    \item[\checkmark] واجبات يومية مع الحلول النموذجية
+    \item[\checkmark] شرح نماذج المحوسب كاملة مع التحديث و الإضافات
+    \item[\checkmark] شرح اساسيات التحصيلي رياضيات - فيزياء - كيمياء
+    \item[\checkmark] اختبارات الكترونية محاكية لقياس في جميع الأقسام
+    \item[\checkmark] قسم مجاني للتدريب و قياس المستوى
+    \item[\checkmark] قسم مجاني خاص بنماذج المختبرين اليومية مع الشرح
+\end{itemize}
+
+\vspace{1.5cm} % مسافة رأسية أكبر قبل العنوان التالي
+
+% عنوان النماذج اليومية
+\begin{center}
+    \Huge\textbf{النماذج اليومية للمختبرين}
+\end{center}
+
+\vspace{1cm} % مسافة رأسية قبل المربعات
+
+% تنسيق المربعات والروابط
+\begin{center}
+    \begin{tabular}{|c|}
+        \hline
+        \textbf{النماذج} \\
+        \textbf{اليومية} \\
+        \textbf{للمختبرين} \\
+        \hline
+    \end{tabular}
+    \quad % مسافة أفقية صغيرة بين الجدولين
+    \begin{tabular}{|c|}
+        \hline
+        الاختبارات المحاكية \\
+        لقياس \\
+        قدرات كمي \\
+        \hline
+    \end{tabular}
+    \\
+    \vspace{0.5cm} % مسافة رأسية بين الجداول والرابط
+    \url{www.tiqdr.com}
+\end{center}
+
+\vspace{1cm} % مسافة رأسية قبل السطر الأخير
+
+% نص التوافق
+\begin{center}
+    متوافق مع نظام القدرات الجديد
+\end{center}
+
+\end{document}
+```

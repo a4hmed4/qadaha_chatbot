@@ -1,0 +1,177 @@
+📄 الصورة: page_28_left.jpg
+🕒 التاريخ: 2025-07-31 00:23:04.763120
+
+🧠 النص المستخرج:
+٧٩. قارن بين
+القيمة الأولى (-1) (-1) (-1)
+القيمة الثانية (-1) + (-1)
+أ القيمة الأولى أكبر
+ب القيمة الثانية أكبر
+ج القيمتان متساويتان
+د المعطيات غير كافية
+
+٨٠. لدى محمد ٩٣ ريال و يستخدم بعض الفئات ٢٠ و ١٠ و ٥ و ١
+فما أقل عدد ممكن من الأوراق النقدية معه ؟
+أ ٦
+ب ٧
+ج ٨
+د ١٢
+
+٨١. عدد إذا ضرب في نفسه ثم جمع عليه ضعفه أصبح الناتج
+أ س² - ٢ س
+ب س² + ٢ س
+ج س² + س
+د س + ٢ س
+
+٨٢. قارن بين:
+القيمة الأولى
+راتب رجل يعمل ٤٠ ساعة إذا كان يتقاضى ٣٠ ريال في الساعة
+القيمة الثانية
+راتب رجل يعمل ٦٥ ساعة إذا كان يتقاضى ٢٠ ريال في الساعة
+أ القيمة الأولى أكبر
+ب القيمة الثانية أكبر
+ج القيمتان متساويتان
+د المعطيات غير كافية
+
+٨٣. إذا كان | ٤ س | = ٢٠ فإن س = ........
+أ ٥-
+ب ٥
+ج ٥ ±
+د ٢٠ ±
+
+٨٤. عدد إذا ضرب × ⅓ كان الناتج = ٩ ، ما هو العدد
+أ ١٦
+ب ٢٤
+ج ٣٦
+د ٢٧
+
+٨٥. عدد ضرب في نفسه ثم اضيف اليه ٤ وطرحنا منه ٤ أمثاله فيصبح
+أ (ل+٢)²
+ب (ل-٢)²
+ج ل² - ٨
+د ٤-ل
+
+٨٦. وقف أحمد في الطابور ، فكان عدد الذين قبله مساو لعدد
+الذين بعده ، كم عددهم الكلي ؟
+أ ٢٤
+ب ٢١
+ج ٢٦
+د ٣٢
+
+٨٧. جريدة تنتج ٦٠٠ نسخة في الأسبوع ، كم تنتج في السنة ؟
+أ ٣٠٠٠
+ب ٣٠٠٠٠
+ج ٣٦٠٠٠
+د ٢٥٠٠٠
+
+🧮 LaTeX:
+بالتأكيد، إليك المعادلات والتعابير الرياضية محولة إلى LaTeX. لضمان عرض النص العربي بشكل صحيح مع المعادلات، يفضل استخدام XeLaTeX أو LuaLaTeX مع حزم مثل `polyglossia` أو `arabxetex`.
+
+هذا مثال على بداية المستند (preamble) الذي قد تحتاجه:
+
+```latex
+\documentclass{article}
+\usepackage{amsmath} % For math environments and symbols
+\usepackage{amsfonts} % For additional math fonts
+\usepackage{amssymb} % For additional math symbols
+
+% For Arabic text (if using XeLaTeX or LuaLaTeX)
+\usepackage{polyglossia}
+\setmainlanguage{arabic}
+\setotherlanguage{english}
+\newfontfamily\arabicfont[Script=Arabic]{Amiri} % Or any other Arabic font on your system
+
+\usepackage{enumitem} % To customize list labels (like a, b, c, d)
+\setlist[enumerate,1]{label=\arabic*.} % For numbered problems (1., 2., ...)
+\setlist[enumerate,2]{label=\alph*)} % For option lists (a), b), ...)
+
+\begin{document}
+% يمكنك استخدام هذا الأمر لتعيين اتجاه النص من اليمين إلى اليسار للصفحة بأكملها
+\RTL
+
+\begin{enumerate}
+
+\item \textbf{79.} \text{قارن بين}
+\begin{enumerate}
+    \item \text{القيمة الأولى } $(-1)(-1)(-1)$
+    \item \text{القيمة الثانية } $(-1) + (-1)$
+\end{enumerate}
+\begin{enumerate}
+    \item \text{القيمة الأولى أكبر}
+    \item \text{القيمة الثانية أكبر}
+    \item \text{القيمتان متساويتان}
+    \item \text{المعطيات غير كافية}
+\end{enumerate}
+
+\item \textbf{80.} \text{لدى محمد 93 ريال ويستخدم بعض الفئات 20 و 10 و 5 و 1. فما أقل عدد ممكن من الأوراق النقدية معه ؟}
+\begin{enumerate}
+    \item 6
+    \item 7
+    \item 8
+    \item 12
+\end{enumerate}
+
+\item \textbf{81.} \text{عدد إذا ضرب في نفسه ثم جمع عليه ضعفه أصبح الناتج}
+\begin{enumerate}
+    \item $x^2 - 2x$
+    \item $x^2 + 2x$
+    \item $x^2 + x$
+    \item $x + 2x$
+\end{enumerate}
+
+\item \textbf{82.} \text{قارن بين:}
+\begin{enumerate}
+    \item \text{القيمة الأولى: راتب رجل يعمل 40 ساعة إذا كان يتقاضى 30 ريال في الساعة}
+    \item \text{القيمة الثانية: راتب رجل يعمل 65 ساعة إذا كان يتقاضى 20 ريال في الساعة}
+\end{enumerate}
+\begin{enumerate}
+    \item \text{القيمة الأولى أكبر}
+    \item \text{القيمة الثانية أكبر}
+    \item \text{القيمتان متساويتان}
+    \item \text{المعطيات غير كافية}
+\end{enumerate}
+
+\item \textbf{83.} \text{إذا كان } $|4x| = 20$ \text{ فإن } $x = \ldots \ldots$
+\begin{enumerate}
+    \item $-5$
+    \item $5$
+    \item $\pm 5$
+    \item $\pm 20$
+\end{enumerate}
+
+\item \textbf{84.} \text{عدد إذا ضرب } $\times \frac{1}{3}$ \text{ كان الناتج } $= 9$ \text{، ما هو العدد؟}
+\begin{enumerate}
+    \item 16
+    \item 24
+    \item 36
+    \item 27
+\end{enumerate}
+
+\item \textbf{85.} \text{عدد ضرب في نفسه ثم أضيف إليه 4 وطرحنا منه 4 أمثاله فيصبح}
+\begin{enumerate}
+    \item $(l+2)^2$
+    \item $(l-2)^2$
+    \item $l^2 - 8$
+    \item $4-l$
+\end{enumerate}
+
+\item \textbf{86.} \text{وقف أحمد في الطابور، فكان عدد الذين قبله مساوٍ لعدد الذين بعده. كم عددهم الكلي ؟}
+\begin{enumerate}
+    \item 24
+    \item 21
+    \item 26
+    \item 32
+\end{enumerate}
+
+\item \textbf{87.} \text{جريدة تنتج 600 نسخة في الأسبوع، كم تنتج في السنة ؟}
+\begin{enumerate}
+    \item 3000
+    \item 30000
+    \item 36000
+    \item 25000
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+```

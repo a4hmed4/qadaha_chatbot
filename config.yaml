@@ -1,0 +1,24 @@
+# MongoDB Configuration
+mongo_connection_str: "mongodb://localhost:27017"
+database_name: "Math_Problems"
+collection_name: "math_documents"
+
+# File System Configuration
+files_directory: "resources"
+chunk_size: 1500
+
+# Ollama Configuration
+model_name: "gemma3:1b"
+ollama_base_url: "http://localhost:11434"
+temperature: 0.05
+
+# Embedding Model Configuration
+# BAAI/bge-large-en-v1.5
+# 
+embedding_model: "./models/qwen3-1.7b"
+# embedding_model: "./models/Granite-Embedding-278M"
+# embedding_model: "./models/qwen3-4b"
+
+# Retrieval Configuration
+retrieval_k: 10
+similarity_threshold: 0.35

@@ -1,0 +1,115 @@
+📄 الصورة: page_15_left.jpg
+🕒 التاريخ: 2025-07-30 23:48:22.233009
+
+🧠 النص المستخرج:
+فيديو ٨
+التأسيس
+١٦ قائم أم حاد أم منفرج
+يمكن تحديد نوع المثلث إذا علمت أضلاعه
+نربع الثلاث أضلاع
+(صورة مثلث رؤوسه أ، ب، ج)
+المثلث قائم إذا كان
+مربع الضلع الكبير = مجموع مربعي الضلعين الآخرين
+المثلث منفرج إذا كان
+مربع الضلع الكبير > مجموع مربعي الضلعين الآخرين
+المثلث حاد إذا كان
+مربع الضلع الكبير < مجموع مربعي الضلعين الآخرين
+
+مثال ٥١
+ما نوع المثلث المرسوم
+(صورة مثلث أضلاعه ٥، ٧، ٦)
+أ أحاد الزوايا
+ب منفرج الزاوية
+ج قائم الزاوية
+د متطابق الزوايا
+الحل
+نربع الاضلاع الثلاثة لتصبح ٤٩, ٢٥, ٣٦
+وحيث ان ٤٩ > ٣٦ + ٢٥
+فإن المثلث حاد الزوايا ( أ )
+
+مثال ٥٢
+ما نوع المثلث المرسوم
+(صورة مثلث أضلاعه ٢، ٣، ٤)
+أ أحاد الزوايا
+ب منفرج الزاوية
+ج قائم الزاوية
+د متطابق الزوايا
+الحل
+نربع الاضلاع الثلاثة لتصبح ١٦, ٩, ٤
+وحيث ان ١٦ > ٩ + ٤
+فإن المثلث منفرج الزاوية
+
+IV لأول مرة تسمع عنها
+إذا كان
+
+🧮 LaTeX:
+بالتأكيد، إليك التحويل الدقيق للمعادلات والتعابير الرياضية إلى LaTeX:
+
+```latex
+\documentclass{article}
+\usepackage[utf8]{inputenc} % For direct UTF-8 input
+\usepackage[T1]{fontenc}    % Recommended font encoding
+\usepackage{amsmath}        % For \text and other math environments
+\usepackage{amsfonts}       % For mathematical fonts (e.g., blackboard bold, not strictly needed here)
+\usepackage{ragged2e}       % For \RaggedRight, to handle potential mixed LTR/RTL lines
+\usepackage{setspace}       % For line spacing if desired
+
+% Using a package for Arabic (like polyglossia or bidi) would be ideal for full RTL support,
+% but for isolated Arabic text within math or simple paragraphs, \text and manual line breaks work.
+% For proper document-wide Arabic typesetting, consider XeLaTeX or LuaLaTeX with polyglossia.
+
+\begin{document}
+\RaggedRight % Align text to the left (default for LTR, helpful for mixed content)
+\setstretch{1.2} % Slightly more relaxed line spacing
+
+فيديو ٨
+
+التأسيس
+
+١٦ قائم أم حاد أم منفرج
+يمكن تحديد نوع المثلث إذا علمت أضلاعه
+نربع الثلاث أضلاع
+(صورة مثلث رؤوسه أ، ب، ج)
+
+المثلث قائم إذا كان
+\[ \text{مربع الضلع الكبير} = \text{مجموع مربعي الضلعين الآخرين} \]
+
+المثلث منفرج إذا كان
+\[ \text{مربع الضلع الكبير} > \text{مجموع مربعي الضلعين الآخرين} \]
+
+المثلث حاد إذا كان
+\[ \text{مربع الضلع الكبير} < \text{مجموع مربعي الضلعين الآخرين} \]
+
+مثال ٥١
+
+ما نوع المثلث المرسوم
+(صورة مثلث أضلاعه ٥، ٧، ٦)
+أ أحاد الزوايا
+ب منفرج الزاوية
+ج قائم الزاوية
+د متطابق الزوايا
+
+الحل
+نربع الاضلاع الثلاثة لتصبح ٤٩, ٢٥, ٣٦
+وحيث ان $49 > 36 + 25$
+فإن المثلث حاد الزوايا ( أ )
+
+مثال ٥٢
+
+ما نوع المثلث المرسوم
+(صورة مثلث أضلاعه ٢، ٣، ٤)
+أ أحاد الزوايا
+ب منفرج الزاوية
+ج قائم الزاوية
+د متطابق الزوايا
+
+الحل
+نربع الاضلاع الثلاثة لتصبح ١٦, ٩, ٤
+وحيث ان $16 > 9 + 4$
+فإن المثلث منفرج الزاوية
+
+IV لأول مرة تسمع عنها
+إذا كان
+
+\end{document}
+```

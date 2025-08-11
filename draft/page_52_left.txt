@@ -1,0 +1,80 @@
+📄 الصورة: page_52_left.jpg
+🕒 التاريخ: 2025-07-31 00:25:54.901769
+
+🧠 النص المستخرج:
+104. ما قيمته
+$(\frac{٠.٨}{٢٥} - \frac{١}{٥}) + (\frac{٢}{٥} \times \frac{٢}{٥} \times \frac{١}{٥})$
+أ) $\frac{٤}{١٢٥}$
+ب) $\frac{٢}{١٥}$
+ج) $\frac{٣}{٢٥}$
+د) $\frac{٤}{٥}$
+الحل
+نحسب ما داخل القوس
+$\frac{٠.٨}{٢٥} = \frac{٨}{٢٥٠} = \frac{٤}{١٢٥}$
+نبسط $\leftarrow \frac{٤}{١٢٥}$
+نستبدل العلامة بصفر
+المقدار يصبح $\frac{١}{٥} = \frac{٤}{١٢٥} - \frac{١}{٥} + \frac{٤}{١٢٥}$
+(أ)
+
+105. ما قيمة
+$(\frac{٠.٤}{٢٥} \div \frac{١}{٥}) \times \frac{٢}{٥} \times \frac{١}{٥} \times \frac{٢}{٥}$
+أ) $\frac{٤}{١٢٥}$
+ب) $\frac{٢}{٥}$
+ج) $\frac{١}{٥}$
+د) $\frac{١}{٢٥}$
+الحل
+$\frac{٢٥٠}{٤} \times \frac{١}{٥} \times \frac{٢}{٥} \times \frac{١}{٥} \times \frac{٢}{٥} = \frac{٢٥}{٤} \times \frac{١}{٥} \times \frac{٢}{٥} \times \frac{١}{٥} \times \frac{٢}{٥}$
+(ب) $\frac{٢}{٥} = \frac{٢٥٠}{٤} \times \frac{١}{٥} \times \frac{٢}{٥} \times \frac{١}{٥} \times \frac{٢}{٥}$
+
+106. ما قيمة
+$(\frac{٢}{٥} \times \frac{١}{٥} \times \frac{٢}{٥
+
+🧮 LaTeX:
+بالتأكيد، إليك المعادلات والتعابير الرياضية محولة إلى LaTeX بدقة:
+
+```latex
+104. ما قيمته
+\[
+\left(\frac{0.8}{25} - \frac{1}{5}\right) + \left(\frac{2}{5} \times \frac{2}{5} \times \frac{1}{5}\right)
+\]
+أ) $\frac{4}{125}$
+ب) $\frac{2}{15}$
+ج) $\frac{3}{25}$
+د) $\frac{4}{5}$
+
+الحل
+نحسب ما داخل القوس
+\[
+\frac{0.8}{25} = \frac{8}{250} = \frac{4}{125}
+\]
+نبسط $\gets \frac{4}{125}$
+نستبدل العلامة بصفر
+المقدار يصبح
+\[
+\frac{1}{5} = \frac{4}{125} - \frac{1}{5} + \frac{4}{125}
+\]
+(أ)
+
+105. ما قيمة
+\[
+\left(\frac{0.4}{25} \div \frac{1}{5}\right) \times \frac{2}{5} \times \frac{1}{5} \times \frac{2}{5}
+\]
+أ) $\frac{4}{125}$
+ب) $\frac{2}{5}$
+ج) $\frac{1}{5}$
+د) $\frac{1}{25}$
+
+الحل
+\[
+\frac{250}{4} \times \frac{1}{5} \times \frac{2}{5} \times \frac{1}{5} \times \frac{2}{5} = \frac{25}{4} \times \frac{1}{5} \times \frac{2}{5} \times \frac{1}{5} \times \frac{2}{5}
+\]
+(ب)
+\[
+\frac{2}{5} = \frac{250}{4} \times \frac{1}{5} \times \frac{2}{5} \times \frac{1}{5} \times \frac{2}{5}
+\]
+
+106. ما قيمة
+\[
+\left(\frac{2}{5} \times \frac{1}{5} \times \frac{2}{5}\right. \quad \text{... (المقدار غير مكتمل في النص الأصلي)}
+\]
+```

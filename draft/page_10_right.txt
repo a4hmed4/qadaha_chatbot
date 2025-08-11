@@ -1,0 +1,177 @@
+📄 الصورة: page_10_right.jpg
+🕒 التاريخ: 2025-07-30 23:47:13.007762
+
+🧠 النص المستخرج:
+مهارات و قوانين ما قبل التأسيس
+
+مثال ١٤
+ما قيمة
+٥٨٠ + ٩٠٠ + ٢٠٠ + ١١٠ + ٥٠٠ + ٦٠٠ + ٧٠٠ + ٢٠٠ + ١١٠ + ٩٠٠
+أ ٥٠٠
+ب ٥٥٠
+ج ٤٥٠٠
+د ٦٠٠٠
+
+الحل
+نختار الاعداد التي تجمع مع بعضها بسهولة
+٥٨٠ + ٩٠٠ + ٢٠٠ + ١١٠ + ٥٠٠ + ٦٠٠ + ٧٠٠ + ٢٠٠ + ١١٠ + ٩٠٠
+٢٧٠٠ = ٣٠٠ + ٦٠٠ + ٩٠٠ + ٩٠٠
+٨٠٠ = ٥٨٠ + ١١٠ + ١١٠
+١٥٠٠ = ٥٠٠ + ٧٠٠ + ٣٠٠
+المجموع = ٢٧٠٠ + ٨٠٠ + ١٥٠٠ = ٥٠٠٠
+
+مثال ١٥
+ما قيمة
+٧٥٠ + ٢٥٠ + ٣٠٠ + ١٨٠ + ٨٢٠ + ٧٠٠ + ٣٥٠ + ٦٥٠ + ١٠ + ٩٩٠
+أ ٥٠٠
+ب ٥٥٠٠
+ج ٤٥٠٠
+د ٦٠٠٠
+
+الحل
+٧٥٠ + ٢٥٠ + ٣٠٠ + ١٨٠ + ٨٢٠ + ٧٠٠ + ٣٥٠ + ٦٥٠ + ١٠ + ٩٩٠
+١٠٠٠ = ٣٥٠ + ٦٥٠
+١٠٠٠ = ١٠ + ٩٩٠
+١٠٠٠ = ٣٠٠ + ٧٠٠
+١٠٠٠ = ١٨٠ + ٨٢٠
+١٠٠٠ = ٧٥٠ + ٢٥٠
+المجموع = ١٠٠٠ + ١٠٠٠ + ١٠٠٠ + ١٠٠٠ + ١٠٠٠ = ٥٠٠٠
+
+٥ ضرب الاعداد الكبيرة
+• في حالة الضرب نعتمد على ضرب الأحاد فقط
+حيث ضرب الأحاد في كل عدد يعطي أحاد الناتج
+• خانة العشرات للناتج = الاحاد الناتج من العملية التالية
+= احاد الأول × عشرات الثاني + احاد الثاني × عشرات الاول
+
+مثال ١٦
+أوجد ناتج ٦٣ × ٢٧٤ × ٤
+أ ٦٩٠٤٨
+ب ٩٧٨٤٢
+ج ٧٢٥٦٩
+د ٦٩٨٤٠
+
+الحل
+نحاول ضرب آحاد كل عدد ٣ × ٤ × ٤ = ٤٨ نجد أن آحاد الناتج هو ٨
+لذلك نختار العدد الذي آحاده ٨ وهو ٦٩٠٤٨
+
+🧮 LaTeX:
+إليك التحويل الدقيق للمعادلات والتعابير الرياضية إلى LaTeX:
+
+```latex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[LAE, arabic]{babel} % Use 'arabic' for modern LaTeX distributions
+\usepackage{amsmath}
+\usepackage{enumitem} % For customizing list labels
+
+% Set up Arabic numerals for math mode
+\mathchardef\numzero="0D30
+\mathchardef\numone="0D31
+\mathchardef\numtwo="0D32
+\mathchardef\numthree="0D33
+\mathchardef\numfour="0D34
+\mathchardef\numfive="0D35
+\mathchardef\numsix="0D36
+\mathchardef\numseven="0D37
+\mathchardef\numeight="0D38
+\mathchardef\numnine="0D39
+
+\DeclareSymbolFont{arabicsymbols}{U}{euex}{m}{n}
+\DeclareMathSymbol{\ArabicZero}{\mathord}{arabicsymbols}{"30}
+\DeclareMathSymbol{\ArabicOne}{\mathord}{arabicsymbols}{"31}
+\DeclareMathSymbol{\ArabicTwo}{\mathord}{arabicsymbols}{"32}
+\DeclareMathSymbol{\ArabicThree}{\mathord}{arabicsymbols}{"33}
+\DeclareMathSymbol{\ArabicFour}{\mathord}{arabicsymbols}{"34}
+\DeclareMathSymbol{\ArabicFive}{\mathord}{arabicsymbols}{"35}
+\DeclareMathSymbol{\ArabicSix}{\mathord}{arabicsymbols}{"36}
+\DeclareMathSymbol{\ArabicSeven}{\mathord}{arabicsymbols}{"37}
+\DeclareMathSymbol{\ArabicEight}{\mathord}{arabicsymbols}{"38}
+\DeclareMathSymbol{\ArabicNine}{\mathord}{arabicsymbols}{"39}
+
+\let\oldarabic\arabic
+\renewcommand{\arabic}[1]{%
+  \ifcase#1\ArabicZero\or\ArabicOne\or\ArabicTwo\or\ArabicThree\or
+  \ArabicFour\or\ArabicFive\or\ArabicSix\or\ArabicSeven\or
+  \ArabicEight\or\ArabicNine\else\oldarabic{#1}\fi
+}
+% End of Arabic numerals setup
+
+\begin{document}
+
+\section*{\centering مهارات وقوانين ما قبل التأسيس}
+
+\subsection*{مثال ١٤}
+ما قيمة
+\[
+٥٨٠ + ٩٠٠ + ٢٠٠ + ١١٠ + ٥٠٠ + ٦٠٠ + ٧٠٠ + ٢٠٠ + ١١٠ + ٩٠٠
+\]
+\begin{enumerate}[label=\textsuperscript{\arabic*})]
+    \item أ) ٥٠٠
+    \item ب) ٥٥٠
+    \item ج) ٤٥٠٠
+    \item د) ٦٠٠٠
+\end{enumerate}
+
+\subsubsection*{الحل}
+نختار الأعداد التي تجمع مع بعضها بسهولة
+\[
+٥٨٠ + ٩٠٠ + ٢٠٠ + ١١٠ + ٥٠٠ + ٦٠٠ + ٧٠٠ + ٢٠٠ + ١١٠ + ٩٠٠
+\]
+\begin{align*}
+٢٧٠٠ &= ٣٠٠ + ٦٠٠ + ٩٠٠ + ٩٠٠ \\
+٨٠٠ &= ٥٨٠ + ١١٠ + ١١٠ \\
+١٥٠٠ &= ٥٠٠ + ٧٠٠ + ٣٠٠
+\end{align*}
+\[
+\text{المجموع} = ٢٧٠٠ + ٨٠٠ + ١٥٠٠ = ٥٠٠٠
+\]
+
+\subsection*{مثال ١٥}
+ما قيمة
+\[
+٧٥٠ + ٢٥٠ + ٣٠٠ + ١٨٠ + ٨٢٠ + ٧٠٠ + ٣٥٠ + ٦٥٠ + ١٠ + ٩٩٠
+\]
+\begin{enumerate}[label=\textsuperscript{\arabic*})]
+    \item أ) ٥٠٠
+    \item ب) ٥٥٠٠
+    \item ج) ٤٥٠٠
+    \item د) ٦٠٠٠
+\end{enumerate}
+
+\subsubsection*{الحل}
+\begin{align*}
+٧٥٠ + ٢٥٠ + ٣٠٠ + ١٨٠ + ٨٢٠ + ٧٠٠ + ٣٥٠ + ٦٥٠ + ١٠ + ٩٩٠ \\
+١٠٠٠ &= ٣٥٠ + ٦٥٠ \\
+١٠٠٠ &= ١٠ + ٩٩٠ \\
+١٠٠٠ &= ٣٠٠ + ٧٠٠ \\
+١٠٠٠ &= ١٨٠ + ٨٢٠ \\
+١٠٠٠ &= ٧٥٠ + ٢٥٠
+\end{align*}
+\[
+\text{المجموع} = ١٠٠٠ + ١٠٠٠ + ١٠٠٠ + ١٠٠٠ + ١٠٠٠ = ٥٠٠٠
+\]
+
+\section*{٥ ضرب الأعداد الكبيرة}
+\begin{itemize}
+    \item في حالة الضرب نعتمد على ضرب الأحاد فقط. حيث ضرب الأحاد في كل عدد يعطي أحاد الناتج.
+    \item خانة العشرات للناتج = الأحاد الناتج من العملية التالية:
+    \[
+    \text{احاد الأول} \times \text{عشرات الثاني} + \text{احاد الثاني} \times \text{عشرات الأول}
+    \]
+\end{itemize}
+
+\subsection*{مثال ١٦}
+أوجد ناتج $٦٣ \times ٢٧٤ \times ٤$
+\begin{enumerate}[label=\textsuperscript{\arabic*})]
+    \item أ) ٦٩٠٤٨
+    \item ب) ٩٧٨٤٢
+    \item ج) ٧٢٥٦٩
+    \item د) ٦٩٨٤٠
+\end{enumerate}
+
+\subsubsection*{الحل}
+نحاول ضرب آحاد كل عدد $٣ \times ٤ \times ٤ = ٤٨$. نجد أن آحاد الناتج هو ٨.
+لذلك نختار العدد الذي آحاده ٨ وهو ٦٩٠٤٨.
+
+\end{document}
+```

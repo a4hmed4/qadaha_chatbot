@@ -1,0 +1,211 @@
+📄 الصورة: page_29_right.jpg
+🕒 التاريخ: 2025-07-31 00:17:07.323563
+
+🧠 النص المستخرج:
+تجميعات نماذج المحوسب تستطيع حلها
+
+٨٨ قارن بين
+| القيمة الأولى | القيمة الثانية |
+|---|---|
+| حاصل ضرب الأعداد من (-٧ إلى ١٢) ما عدا الصفر | حاصل ضرب الأعداد من (-٧ إلى ١٢) ما عدا الصفر |
+أ القيمة الأولى أكبر
+ب القيمة الثانية أكبر
+ج القيمتان متساويتان
+د المعطيات غير كافية
+
+٨٩ إذا كان س + ٢ص = ٢٢ ، س = ٢ ، فقارن بين:
+| القيمة الأولى | القيمة الثانية |
+|---|---|
+| ١٢ | $\frac{س + ص}{١٢}$ |
+أ القيمة الأولى أكبر
+ب القيمة الثانية أكبر
+ج القيمتان متساويتان
+د المعطيات غير كافية
+
+٩٠ مجموع أربعة أعداد متتالية ؟
+أ لا يقبل القسمة على ٣
+ب عدداً فردياً
+ج عدداً زوجياً
+د يقبل القسمة على ٥
+
+٩١ إذا كان $\frac{٣+س}{٥} = ٠$ صفر فإن س = ..........
+أ ٣-
+ب ٣
+ج ١
+د ٥
+
+٩٢ إذا كان $\frac{٢}{٣}$ قارورة = ٢٤٠ سم$^٢$ فكم نحتاج إذا اردنا ملئ القارورة كاملة
+أ ١٦٠
+ب ٣٦٠
+ج ٢٦٠
+د ٤٦٠
+
+٩٣ إذا كانت ن سالب فأي الاعداد التالية اكبر
+أ ١-ن
+ب ١+ن
+ج ن-١
+د $\frac{١}{ن}$
+
+٩٤ إذا كان ٩س = ٢٧ فما ناتج ٦س
+أ ١٧
+ب ٨١
+ج ١٨
+د ٩
+
+٩٥ س + $\frac{١}{س} = \frac{١+س^٢}{س}$ ، فإن قيمة س التي تحقق المعادلة هي
+أ كل الأعداد ما عدا الصفر
+ب صفر
+ج ١ أو ١-
+د ١
+
+٩٦ إذا كان ٣ س = $\frac{٢٧}{١٠}$ فما قيمة ١٠ س
+أ ٦
+ب ٩
+ج ٨
+د ١٤٥
+
+٩٧ أكبر عدد مضروب في ٧ والناتج أقل من ١١٥
+أ ١٧
+ب ١٥
+ج ١٦
+د ١٤٥
+
+🧮 LaTeX:
+إليك التحويل الدقيق للمعادلات والتعابير الرياضية إلى LaTeX:
+
+```latex
+\documentclass{article}
+\usepackage{amsmath} % For \text
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} % For \scalebox if needed for Arabic numbers, but typically not.
+% If you need to type Arabic characters directly, you'll need a XeLaTeX or LuaLaTeX compiler with polyglossia or a similar package:
+% \usepackage{polyglossia}
+% \setmainlanguage{arabic}
+% \setotherlanguage{english}
+% \newfontfamily\arabicfont[Script=Arabic]{Amiri} % Or another Arabic font
+
+\begin{document}
+
+تجميعات نماذج المحوسب تستطيع حلها
+
+\vspace{0.5cm} % Add some space for readability
+
+\textbf{٨٨} قارن بين
+
+\begin{tabular}{|c|c|}
+\hline
+\text{القيمة الأولى} & \text{القيمة الثانية} \\
+\hline
+\text{حاصل ضرب الأعداد من } (-7 \text{ إلى } 12) \text{ ما عدا الصفر} & \text{حاصل ضرب الأعداد من } (-7 \text{ إلى } 12) \text{ ما عدا الصفر} \\
+\hline
+\end{tabular}
+
+\begin{itemize}
+    \item[\text{أ}] \text{القيمة الأولى أكبر}
+    \item[\text{ب}] \text{القيمة الثانية أكبر}
+    \item[\text{ج}] \text{القيمتان متساويتان}
+    \item[\text{د}] \text{المعطيات غير كافية}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{٨٩} إذا كان $\text{س} + 2\text{ص} = 22 \text{ ، } \text{س} = 2 \text{ ، فقارن بين:}$
+
+\begin{tabular}{|c|c|}
+\hline
+\text{القيمة الأولى} & \text{القيمة الثانية} \\
+\hline
+$12$ & $\frac{\text{س} + \text{ص}}{12}$ \\
+\hline
+\end{tabular}
+
+\begin{itemize}
+    \item[\text{أ}] \text{القيمة الأولى أكبر}
+    \item[\text{ب}] \text{القيمة الثانية أكبر}
+    \item[\text{ج}] \text{القيمتان متساويتان}
+    \item[\text{د}] \text{المعطيات غير كافية}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{٩٠} \text{مجموع أربعة أعداد متتالية ؟}
+\begin{itemize}
+    \item[\text{أ}] \text{لا يقبل القسمة على } 3
+    \item[\text{ب}] \text{عدداً فردياً}
+    \item[\text{ج}] \text{عدداً زوجياً}
+    \item[\text{د}] \text{يقبل القسمة على } 5
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{٩١} \text{إذا كان } $\frac{3+\text{س}}{5} = 0$ \text{ فإن س = ..........}
+\begin{itemize}
+    \item[\text{أ}] $-3$
+    \item[\text{ب}] $3$
+    \item[\text{ج}] $1$
+    \item[\text{د}] $5$
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{٩٢} \text{إذا كان } $\frac{2}{3}$ \text{ قارورة} $= 240 \text{ سم}^2$ \text{ فكم نحتاج إذا أردنا ملء القارورة كاملة}
+\begin{itemize}
+    \item[\text{أ}] $160$
+    \item[\text{ب}] $360$
+    \item[\text{ج}] $260$
+    \item[\text{د}] $460$
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{٩٣} \text{إذا كانت ن سالب فأي الأعداد التالية أكبر}
+\begin{itemize}
+    \item[\text{أ}] $1-\text{ن}$
+    \item[\text{ب}] $1+\text{ن}$
+    \item[\text{ج}] $\text{ن}-1$
+    \item[\text{د}] $\frac{1}{\text{ن}}$
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{٩٤} \text{إذا كان } $9\text{س} = 27$ \text{ فما ناتج } $6\text{س}$
+\begin{itemize}
+    \item[\text{أ}] $17$
+    \item[\text{ب}] $81$
+    \item[\text{ج}] $18$
+    \item[\text{د}] $9$
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{٩٥} $\text{س} + \frac{1}{\text{س}} = \frac{1+\text{س}^2}{\text{س}} \text{ ، فإن قيمة س التي تحقق المعادلة هي}$
+\begin{itemize}
+    \item[\text{أ}] \text{كل الأعداد ما عدا الصفر}
+    \item[\text{ب}] \text{صفر}
+    \item[\text{ج}] $1 \text{ أو } -1$
+    \item[\text{د}] $1$
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{٩٦} \text{إذا كان } $3\text{س} = \frac{27}{10}$ \text{ فما قيمة } $10\text{س}$
+\begin{itemize}
+    \item[\text{أ}] $6$
+    \item[\text{ب}] $9$
+    \item[\text{ج}] $8$
+    \item[\text{د}] $145$
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{٩٧} \text{أكبر عدد مضروب في } $7$ \text{ والناتج أقل من } $115$
+\begin{itemize}
+    \item[\text{أ}] $17$
+    \item[\text{ب}] $15$
+    \item[\text{ج}] $16$
+    \item[\text{د}] $145$
+\end{itemize}
+
+\end{document}
+```

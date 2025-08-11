@@ -1,0 +1,164 @@
+📄 الصورة: page_17_left.jpg
+🕒 التاريخ: 2025-07-31 00:01:44.641442
+
+🧠 النص المستخرج:
+فيديو ١٠
+تأسيس
+مثال ٦٠
+المثلث أ ب ج يطابق المثلث د ه و
+
+أ
+ب
+ج
+٣١
+٣٧
+ه
+و
+د
+قارن بين
+القيمة الأولى قياس زاوية ج
+القيمة الثانية ١١١
+أ القيمة الأولى أكبر
+ب القيمة الثانية أكبر
+ج القيمتان متساويتان
+د المعطيات غير كافية
+
+الحل
+ق (و) = ١٨٠ - (٣٧ + ٣١) = ١١٢
+حيث ان المثلثات متطابقة فإن
+ق (ج) = ق (و) = ١١٢ أي ان القيمة الأولى اكبر
+
+التشابه في المثلثات
+يتشابه مثلثان إذا توافرت أحد الحالات الأتية
+* تناسب الأضلاع المتناظرة في كل منهما
+* تساوي زاويتان من الأول مع زاويتان من الثاني
+* تناسب ضلعين من الأول مع ضلعين من الثاني وتساوت الزاوية المحصورة في كلاهما
+
+* التوازي يؤدي الى التشابه
+
+ب
+د
+ج
+ه
+أ
+
+ب
+ج
+أ
+ه
+د
+
+أ
+ه
+د
+ج
+ب
+
+المثلث أ ب ج يشابه المثلث أ د ه
+وينتج من التشابه ان
+أ ب / أ د = ب ج / د ه = أ ج / أ ه
+
+١٢
+
+🧮 LaTeX:
+```latex
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{polyglossia} % For Arabic text
+\setmainlanguage{arabic}
+\setotherlanguage{english}
+\newfontfamily\arabicfont[Script=Arabic]{Amiri} % Or choose another Arabic font installed on your system
+
+\begin{document}
+
+\raggedright % Align text to the right for Arabic
+
+\text{فيديو 10}
+
+\text{تأسيس}
+
+\text{مثال 60}
+
+\text{المثلث أ ب ج يطابق المثلث د ه و}
+$\triangle \text{أ ب ج} \cong \triangle \text{د ه و}$
+
+% These appear to be vertices or values related to an implied diagram.
+% As no specific drawing commands were requested, they are presented as text.
+\text{أ}
+\text{ب}
+\text{ج}
+31
+37
+\text{ه}
+\text{و}
+\text{د}
+
+\text{قارن بين}
+
+\text{القيمة الأولى قياس زاوية ج}
+\text{القيمة الأولى قياس} $\angle \text{ج}$
+
+\text{القيمة الثانية 111}
+\text{القيمة الثانية} $111$
+
+\text{أ القيمة الأولى أكبر}
+\text{ب القيمة الثانية أكبر}
+\text{ج القيمتان متساويتان}
+\text{د المعطيات غير كافية}
+
+\text{الحل}
+% Equation for calculating angle (و)
+\begin{equation*}
+\text{ق}(\text{و}) = 180 - (37 + 31) = 112
+\end{equation*}
+
+\text{حيث أن المثلثات متطابقة فإن}
+% Equation showing equality of angles and conclusion
+\begin{equation*}
+\text{ق}(\text{ج}) = \text{ق}(\text{و}) = 112 \text{ أي أن القيمة الأولى أكبر}
+\end{equation*}
+
+\text{التشابه في المثلثات}
+\text{يتشابه مثلثان إذا توافرت أحد الحالات الآتية}
+\begin{itemize}
+    \item \text{تناسب الأضلاع المتناظرة في كل منهما}
+    \item \text{تساوي زاويتان من الأول مع زاويتان من الثاني}
+    \item \text{تناسب ضلعين من الأول مع ضلعين من الثاني وتساوت الزاوية المحصورة في كلاهما}
+\end{itemize}
+
+\begin{itemize}
+    \item \text{التوازي يؤدي إلى التشابه}
+\end{itemize}
+
+% These represent configurations of vertices for different diagrams.
+\text{ب}
+\text{د}
+\text{ج}
+\text{ه}
+\text{أ}
+
+\text{ب}
+\text{ج}
+\text{أ}
+\text{ه}
+\text{د}
+
+\text{أ}
+\text{ه}
+\text{د}
+\text{ج}
+\text{ب}
+
+\text{المثلث أ ب ج يشابه المثلث أ د ه}
+$\triangle \text{أ ب ج} \sim \triangle \text{أ د ه}$
+
+\text{وينتج من التشابه أن}
+% Proportionality resulting from similarity
+\begin{equation*}
+\frac{\text{أ ب}}{\text{أ د}} = \frac{\text{ب ج}}{\text{د ه}} = \frac{\text{أ ج}}{\text{أ ه}}
+\end{equation*}
+
+12
+
+\end{document}
+```

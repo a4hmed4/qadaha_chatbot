@@ -1,0 +1,94 @@
+📄 الصورة: page_30_right.jpg
+🕒 التاريخ: 2025-07-31 00:22:38.891805
+
+🧠 النص المستخرج:
+تحديث المعا
+1
+الباب الأول
+أساسيات القد
+
+ماذا ستتعلم في هذا الباب؟
+• الأعداد العشرية والعمليات عليها
+• الكسور والعمليات عليها
+• الجذور والعمليات عليها
+• الأسس والعمليات عليها
+• السرعة
+
+تجميعات المحوسب والورقي
+> اختبارات الكترونية
+> اختبارات ورقية
+على كل فصل دراسي
+
+🧮 LaTeX:
+إليك التحويل إلى LaTeX مع افتراض استخدام `article` class وإعدادات اللغة العربية المناسبة (مثل `polyglossia` أو `babel`). لاحظ أنه لا توجد تعابير رياضية معقدة تحتاج إلى `$` أو `\[\]` في النص الأصلي، بل هي مجرد ذكر لمفاهيم رياضية.
+
+```latex
+% يجب تضمين الحزم المناسبة للغة العربية
+% على سبيل المثال، باستخدام polyglossia (الأفضل):
+% \usepackage{polyglossia}
+% \setmainlanguage{arabic}
+% \newfontfamily\arabicfont[Script=Arabic]{Amiri} % أو أي خط عربي مثبت
+
+% أو باستخدام babel:
+% \usepackage[utf8]{inputenc}
+% \usepackage[arabic]{babel}
+% \preto\section{\R{}} % لجعل عناوين الأقسام من اليمين لليسار
+% \preto\subsection{\R{}} % لجعل عناوين الأقسام الفرعية من اليمين لليسار
+
+\documentclass{article} % أو book/report حسب الحاجة
+\usepackage{amsmath} % مفيد للرياضيات بشكل عام
+\usepackage{ragged2e} % لمزيد من التحكم في المحاذاة
+
+% إعدادات اللغة العربية (مثال باستخدام babel)
+\usepackage[utf8]{inputenc}
+\usepackage[arabic]{babel}
+% إعدادات تجريبية لجعل الأقسام من اليمين لليسار مع babel
+\makeatletter
+\def\section{%
+  \@startsection{section}{1}{\z@}%
+    {-3.5ex \@plus -1ex \@minus -.2ex}%
+    {2.3ex \@plus .2ex}%
+    {\normalfont\Large\bfseries\R{}}}
+\def\subsection{%
+  \@startsection{subsection}{2}{\z@}%
+    {-3.25ex\@plus -1ex\@minus-.2ex}%
+    {1.5ex \@plus .2ex}%
+    {\normalfont\large\bfseries\R{}}}
+\makeatother
+
+\begin{document}
+% لتأكيد اتجاه النص من اليمين لليسار للوثيقة بالكامل إذا لم يكن babel/polyglossia كافياً
+% \begin{RTL} 
+
+\begin{center}
+\Huge تحديث المعا
+\end{center}
+
+\vspace{1cm}
+
+\section*{1. الباب الأول}
+\subsection*{أساسيات القد}
+
+\vspace{0.5cm}
+
+\subsection*{ماذا ستتعلم في هذا الباب؟}
+\begin{itemize}
+    \item الأعداد العشرية والعمليات عليها
+    \item الكسور والعمليات عليها
+    \item الجذور والعمليات عليها
+    \item الأسس والعمليات عليها
+    \item السرعة
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsection*{تجميعات المحوسب والورقي}
+
+% استخدام \hspace للمسافة البادئة
+\hspace{1cm} $>$ اختبارات الكترونية \par
+\hspace{1cm} $>$ اختبارات ورقية \par
+على كل فصل دراسي
+
+% \end{RTL} % لإغلاق بيئة RTL إذا تم استخدامها
+\end{document}
+```

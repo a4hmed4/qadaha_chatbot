@@ -1,0 +1,119 @@
+📄 الصورة: page_1_left.jpg
+🕒 التاريخ: 2025-07-30 23:45:13.754163
+
+🧠 النص المستخرج:
+Step 1
+متوافق مع
+النظام الجديد
+عماد الجزيري
+تأسيس كمي
+ورقي ومحوسب
+شامل جميع الصيغ والنماذج
+والمهارات الجديدة.
+تقدر
+منصة در
+حقيبة 1 منجز
+تأسيس كمي
+دورة تأسيس مسجلة مجانا
+اختبارات متدرجة الم
+على النظام الجد
+شرح ال
+الأك
+منتجاتنا وعروضنا من خلال منصة تقدر
+www.tiqdr.com
+
+🧮 LaTeX:
+بالتأكيد، سأقوم بتحويل النص إلى صيغة LaTeX. نظرًا لأن النص المُقدم هو نص عادي وليس معادلات رياضية معقدة تحتوي على كسور أو جذور أو أسس (مثل `\frac`, `\sqrt`, `^2`)، فإنني سأستخدم تنسيقات LaTeX المناسبة للنص والرؤوس والقوائم والروابط، مع الإشارة إلى أن العناصر الرياضية المحددة لم تظهر في النص الأصلي.
+
+للحصول على أفضل عرض للنص العربي في LaTeX، يُنصح باستخدام `XeLaTeX` أو `LuaLaTeX` كمحرك تجميع (بدلاً من `pdfLaTeX` التقليدي)، مع حزمة `arabxetex` و `fontspec`.
+
+```latex
+\documentclass[12pt, a4paper]{article}
+
+% Required packages for Arabic text and general formatting
+\usepackage{fontspec}         % For selecting fonts, especially for XeLaTeX/LuaLaTeX
+\usepackage{arabxetex}        % For high-quality Arabic typesetting
+\usepackage{hyperref}         % For clickable URLs
+\usepackage{geometry}         % For page margins
+\usepackage{ragged2e}         % For text alignment like \Centering
+
+% Set page margins
+\geometry{margin=1in}
+
+% Set the main font for Arabic text. You might need to install an Arabic font like 'Amiri' or 'Noto Naskh Arabic'.
+\setmainfont[Script=Arabic]{Amiri} % Or another Arabic font available on your system
+
+% Set text direction to Right-to-Left (RTL)
+\settextdir{RTL}
+% Activate Arabic localization features (e.g., Arabic numbers, ligatures)
+\localizarabic
+
+% Remove paragraph indentation for a cleaner look
+\parindent0pt
+
+% --- Document Start ---
+\begin{document}
+
+% Step 1 heading
+\Centering
+\Huge\textbf{Step 1}
+\vspace{1em} % Add some vertical space
+
+% First block of text: Features of Emad Al-Jaziri's offering
+\begin{arabtext}
+\Centering % Center this block of text
+\vspace{0.5em}
+\Large\textbf{متوافق مع النظام الجديد}
+\par\vspace{0.5em}
+\normalsize\textbf{عماد الجزيري}
+\par\vspace{0.5em}
+\Large\textbf{تأسيس كمي}
+\par\vspace{0.2em}
+\textit{ورقي ومحوسب}
+\par\vspace{0.2em}
+\textit{شامل جميع الصيغ والنماذج والمهارات الجديدة.}
+\end{arabtext}
+\vspace{1.5em} % More space before the next section
+
+% Platform Name: Tiqdr
+\Centering
+\Huge\textbf{تقدر}
+\vspace{1.5em} % More space
+
+% Second block of text: Products and offerings (presented as a list)
+\begin{arabtext}
+\textbf{منصة در}
+\par\vspace{0.5em}
+\begin{itemize}
+    \item \textbf{حقيبة 1 منجز}
+    \item \textbf{تأسيس كمي}
+    \item \textbf{دورة تأسيس مسجلة مجانا}
+    % The following lines seem incomplete in the original text, so they are grouped as is.
+    \item \textit{اختبارات متدرجة الم}
+    \item \textit{على النظام الجد}
+    \item \textit{شرح ال}
+    \item \textit{الأك}
+\end{itemize}
+\end{arabtext}
+\vspace{1.5em} % More space
+
+% Call to action and URL
+\Centering
+\begin{arabtext}
+\textbf{منتجاتنا وعروضنا من خلال منصة تقدر}
+\end{arabtext}
+\vspace{0.5em}
+\Centering
+\url{www.tiqdr.com}
+
+% --- Document End ---
+\end{document}
+```
+
+**ملاحظات هامة للتجميع (Compilation):**
+
+1.  **المحرك (Engine):** يجب تجميع هذا الكود باستخدام `XeLaTeX` أو `LuaLaTeX`. معظم محررات LaTeX (مثل TeXstudio, Overleaf) تسمح لك باختيار المحرك.
+    *   في TeXstudio: اذهب إلى Options -> Configure TeXstudio -> Commands، وتأكد من أن `XeLaTeX` هو المحرك الافتراضي، أو استخدم `Ctrl + Shift + X` للتجميع بـ `XeLaTeX`.
+    *   في Overleaf: يمكنك اختيار `XeLaTeX` من قائمة `Menu` في أعلى يسار الشاشة.
+2.  **الخطوط (Fonts):** تأكد من تثبيت الخط العربي الذي اخترته (مثل `Amiri`) على نظامك إذا كنت تستخدم TeX Live أو MiKTeX محليًا. إذا كنت تستخدم Overleaf، فإن هذه الخطوط غالبًا ما تكون متاحة بشكل افتراضي.
+3.  **المعادلات الرياضية:** النص الأصلي لم يحتوي على أي معادلات رياضية تتطلب `\frac`, `\sqrt`, `^2`, `=`, `<`, `>`. لذلك، لم يتم استخدام هذه الأوامر في الكود المُنتج. إذا كانت لديك معادلات محددة تحتوي على هذه الرموز، يرجى تقديمها وسأقوم بتحويلها بدقة.

@@ -1,0 +1,48 @@
+📄 الصورة: page_41_left.jpg
+🕒 التاريخ: 2025-07-31 00:03:53.229307
+
+🧠 النص المستخرج:
+
+
+🧮 LaTeX:
+بالتأكيد، إليك التحويل الدقيق للمعادلات والتعابير الرياضية إلى LaTeX:
+
+1.  **مساحة الدائرة = π نق²**
+    ```latex
+    $$A = \pi r^2$$
+    ```
+
+2.  **نظرية فيثاغورس: أ² + ب² = ج²**
+    ```latex
+    $$\text{Pythagorean theorem: } a^2 + b^2 = c^2$$
+    ```
+
+3.  **معادلة الخط المستقيم: ص = م س + ب**
+    ```latex
+    $$\text{Equation of a straight line: } y = mx + b$$
+    ```
+
+4.  **المعادلة التربيعية: س = (-ب ± (جذر(ب² - 4 أ ج))) / (2 أ)**
+    ```latex
+    $$\text{Quadratic equation: } x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+    ```
+
+5.  **متباينة: 3 س + 5 < 14**
+    ```latex
+    $$\text{Inequality: } 3x + 5 < 14$$
+    ```
+
+6.  **نهاية دالة عندما س تقترب من أ: Lim س->أ د(س) = ل**
+    ```latex
+    $$\text{Limit of a function as x approaches a: } \lim_{x \to a} f(x) = L$$
+    ```
+
+7.  **مشتقة دالة: د'(س) = 2س**
+    ```latex
+    $$\text{Derivative of a function: } f'(x) = 2x$$
+    ```
+
+8.  **تكامل دالة: ∫ س² دس = (س³/3) + ث**
+    ```latex
+    $$\text{Integral of a function: } \int x^2 \,dx = \frac{x^3}{3} + C$$
+    ```
