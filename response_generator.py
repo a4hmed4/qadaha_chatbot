@@ -1,7 +1,8 @@
 import logging
 import requests
 import json
-from langchain_ollama.llms import OllamaLLM
+import os
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema.runnable import RunnablePassthrough
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.schema.output_parser import StrOutputParser
@@ -14,16 +15,16 @@ class ResponseGenerator:
         """Initialize the ResponseGenerator with configuration."""
         self.config = config
         
-        # Initialize Ollama for response generation
-        self.base_url = config.get('ollama_base_url', 'http://localhost:11434')
+        # Initialize Gemini for response generation
+        api_key = config.get('gemini_api_key')
+        os.environ["GOOGLE_API_KEY"] = api_key
         
-        self.model = OllamaLLM(
+        self.model = ChatGoogleGenerativeAI(
             model=config.get('model_name'),
-            base_url=self.base_url,
             temperature=config.get('temperature', 0.2),
             top_p=0.95,
             top_k=64,
-            num_predict=4096,
+            max_output_tokens=4096,
             timeout=200
         )
         
@@ -135,16 +136,11 @@ class ResponseGenerator:
             
         # If we get here, all LangChain attempts failed, use direct API
         try:
-            # Fallback to direct Ollama API call with different parameters
-            options = {
-                "temperature": 0.7,
-                "top_p": 0.95,
-                "top_k": 64,
-                "num_predict": 2048,
-            }
+            # Fallback to direct Gemini API call with different parameters
+            import google.generativeai as genai
             
-            # Create URL for the Ollama API
-            api_url = f"{self.base_url}/api/generate"
+            # Configure the Gemini API
+            genai.configure(api_key=self.config.get('gemini_api_key'))
             
             # تبسيط المطالبة للاستدعاء المباشر مع تحسين التعليمات
             system_instructions = """
@@ -166,31 +162,42 @@ class ResponseGenerator:
             """
             
             try:
-                # Try using the system instructions approach first
-                response = self.model.generate(
-                    [
-                        {"role": "system", "parts": [system_instructions]},
-                        {"role": "user", "parts": [user_prompt]}
-                    ]
+                # Get a reference to the model
+                model = genai.GenerativeModel(self.config.get('model_name'))
+                
+                # Create a chat session
+                chat = model.start_chat(history=[])
+                
+                # Send the message with system instructions
+                response = chat.send_message(
+                    {
+                        "role": "user",
+                        "parts": [system_instructions + "\n\n" + user_prompt]
+                    }
                 )
                 
-                if hasattr(response, 'text') and response.text:
+                if hasattr(response, 'text'):
                     return response.text
                 elif hasattr(response, 'parts'):
                     text_content = ''.join(part.text for part in response.parts if hasattr(part, 'text'))
                     if text_content:
                         return text_content
-            except:
+            except Exception as e:
                 # If the system instructions approach fails, fall back to simpler prompt
-                logger.warning("System instructions approach failed, using simple prompt")
-                response = self.model.generate(user_prompt)
-                
-                if hasattr(response, 'text') and response.text:
-                    return response.text
-                elif hasattr(response, 'parts'):
-                    text_content = ''.join(part.text for part in response.parts if hasattr(part, 'text'))
-                    if text_content:
-                        return text_content
+                logger.warning(f"System instructions approach failed: {str(e)}, using simple prompt")
+                try:
+                    model = genai.GenerativeModel(self.config.get('model_name'))
+                    response = model.generate_content(user_prompt)
+                    
+                    if hasattr(response, 'text'):
+                        return response.text
+                    elif hasattr(response, 'parts'):
+                        text_content = ''.join(part.text for part in response.parts if hasattr(part, 'text'))
+                        if text_content:
+                            return text_content
+                except Exception as simple_e:
+                    logger.error(f"Simple prompt approach also failed: {str(simple_e)}")
+                    pass
                 
             # في حالة فشل جميع المحاولات، قدم استجابة عامة تناسب المسألة الرياضية باللغة العربية
             return "عذرًا، لم أتمكن من معالجة المسألة الرياضية بشكل كامل. يرجى إعادة صياغة المسألة أو تقديم مزيد من التفاصيل."

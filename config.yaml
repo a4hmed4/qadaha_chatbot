@@ -7,9 +7,10 @@ collection_name: "math_documents"
 files_directory: "resources"
 chunk_size: 1500
 
-# Ollama Configuration
-model_name: "gemma3:1b"
-ollama_base_url: "http://localhost:11434"
+# Chat Model Configuration
+# Gemini API Configuration
+gemini_api_key: "AIzaSyCJiXjjeHHvdQrYd7n2gwqgfUzQV9el8jE"
+model_name: "gemini-2.5-flash"
 temperature: 0.05
 
 # Embedding Model Configuration
