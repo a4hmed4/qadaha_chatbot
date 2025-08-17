@@ -1,0 +1,59 @@
+/* أنماط إضافية للتطبيق */
+.App {
+  text-align: center;
+}
+
+/* تحسين مظهر الرسائل */
+.message-container {
+  transition: all 0.3s ease;
+}
+
+.message-container:hover {
+  transform: translateY(-1px);
+}
+
+/* تحسين مظهر الأزرار */
+.suggested-question-btn {
+  transition: all 0.2s ease;
+}
+
+.suggested-question-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(30, 64, 175, 0.2);
+}
+
+/* تحسين مظهر مؤشر التحميل */
+.loading-indicator {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* تحسين مظهر شريط التمرير */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+} 

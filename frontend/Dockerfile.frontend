@@ -1,0 +1,19 @@
+FROM node:16-alpine
+
+# تعيين مجلد العمل
+WORKDIR /app
+
+# نسخ ملفات التبعيات
+COPY package*.json ./
+
+# تثبيت التبعيات
+RUN npm install
+
+# نسخ الكود
+COPY . .
+
+# تعريض المنفذ
+EXPOSE 3000
+
+# تشغيل التطبيق
+CMD ["npm", "start"] 
