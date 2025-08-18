@@ -1,0 +1,12 @@
+flask
+flask-cors
+pymongo
+numpy
+langchain
+langchain-google-genai
+google-generativeai
+openai
+sentence-transformers
+transformers
+torch
+pyyaml

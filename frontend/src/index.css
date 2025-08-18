@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: rtl;
+  text-align: right;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* دعم اللغة العربية */
+* {
+  direction: rtl;
+  text-align: right;
+}
+
+/* تحسين مظهر النصوص العربية */
+.MuiTypography-root {
+  font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif !important;
+}
+
+/* تحسين مظهر الأزرار */
+.MuiButton-root {
+  font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif !important;
+}
+
+/* تحسين مظهر حقول الإدخال */
+.MuiTextField-root {
+  font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif !important;
+}
+
+/* تحسين مظهر الشريط الجانبي */
+.MuiAppBar-root {
+  font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif !important;
+}
+
+/* تحسين مظهر الرقائق */
+.MuiChip-root {
+  font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif !important;
+}
+
+/* تحسين مظهر البطاقات */
+.MuiCard-root {
+  font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif !important;
+}
+
+/* تحسين مظهر الأيقونات */
+.MuiSvgIcon-root {
+  font-family: 'Cairo', 'Segoe UI', 'Roboto', 'Arial', sans-serif !important;
+}
+
+/* تحسين مظهر شريط التمرير */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* تحسين مظهر الرسائل */
+.message-bubble {
+  transition: all 0.3s ease;
+}
+
+.message-bubble:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* تحسين مظهر الأزرار المقترحة */
+.suggested-question {
+  transition: all 0.2s ease;
+}
+
+.suggested-question:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(30, 64, 175, 0.2);
+}
+
+/* تحسين مظهر مؤشر التحميل */
+.loading-indicator {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
