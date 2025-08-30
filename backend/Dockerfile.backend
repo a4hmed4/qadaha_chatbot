@@ -1,0 +1,28 @@
+FROM python:3.9-slim
+
+# تعيين مجلد العمل
+WORKDIR /app
+
+# تثبيت التبعيات النظامية
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+# نسخ ملفات المتطلبات
+COPY requirements.txt .
+
+# تثبيت تبعيات Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# نسخ الكود
+COPY . .
+
+# إنشاء المجلدات المطلوبة
+RUN mkdir -p resources models
+
+# تعريض المنفذ
+EXPOSE 5000
+
+# تشغيل التطبيق
+CMD ["python", "app.py"] 

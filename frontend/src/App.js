@@ -22,7 +22,8 @@ import {
   Badge,
   Fade,
   Zoom,
-  Slide
+  Slide,
+  LinearProgress
 } from '@mui/material';
 import {
   Send as SendIcon,
@@ -38,7 +39,12 @@ import {
   TrendingUp as TrendingIcon,
   Chat as ChatIcon,
   BarChart as BarChartIcon,
-  Info as InfoIcon
+  Info as InfoIcon,
+  WifiOff as WifiOffIcon,
+  Speed as SpeedIcon,
+  History as HistoryIcon,
+  Add as AddIcon,
+  Delete as DeleteIcon
 } from '@mui/icons-material';
 import axios from 'axios';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -199,13 +205,18 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [sessionId] = useState(Date.now().toString());
+  const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
+  const [currentConversationId, setCurrentConversationId] = useState(null);
+  const [conversations, setConversations] = useState([]);
+  const [showConversations, setShowConversations] = useState(false);
   const [messageCount, setMessageCount] = useState(0);
   const [showWelcome, setShowWelcome] = useState(true);
   const [showAbout, setShowAbout] = useState(false);
-  const [backendStatus, setBackendStatus] = useState('checking'); // 'checking', 'connected', 'error'
-  const [backendInfo, setBackendInfo] = useState(null);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [isSlowConnection, setIsSlowConnection] = useState(false);
   const messagesEndRef = useRef(null);
+  const conversationsPanelRef = useRef(null);
+  const aboutPanelRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -215,9 +226,45 @@ function App() {
     scrollToBottom();
   }, [messages]);
 
+  // Handle clicks outside conversation and about panels to close them
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        showConversations &&
+        conversationsPanelRef.current &&
+        !conversationsPanelRef.current.contains(event.target)
+      ) {
+        setShowConversations(false);
+      }
+      if (
+        showAbout &&
+        aboutPanelRef.current &&
+        !aboutPanelRef.current.contains(event.target)
+      ) {
+        setShowAbout(false);
+      }
+    };
+
+    if (showConversations || showAbout) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showConversations, showAbout]);
+
   // إضافة رسالة ترحيب عند بدء التطبيق
   useEffect(() => {
     setTimeout(() => setShowWelcome(false), 3000);
+    
+    // إنشاء مستخدم جديد إذا لم يكن موجود
+    if (!userId) {
+      createNewUser();
+    } else {
+      loadConversations();
+    }
+    
     setMessages([
       {
         id: 1,
@@ -226,7 +273,102 @@ function App() {
         timestamp: new Date(),
       }
     ]);
-  }, []);
+  }, [userId]);
+
+  // محاكاة تقدم التحميل
+  useEffect(() => {
+    let interval;
+    if (isLoading) {
+      setLoadingProgress(0);
+      interval = setInterval(() => {
+        setLoadingProgress(prev => {
+          if (prev >= 90) return prev;
+          return prev + Math.random() * 15;
+        });
+      }, 500);
+    } else {
+      setLoadingProgress(0);
+    }
+    return () => clearInterval(interval);
+  }, [isLoading]);
+
+  const createNewUser = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/users');
+      const newUserId = response.data.user_id;
+      setUserId(newUserId);
+      localStorage.setItem('userId', newUserId);
+    } catch (error) {
+      console.error('Error creating user:', error);
+    }
+  };
+
+  const loadConversations = async () => {
+    if (!userId) return;
+    
+    try {
+      const response = await axios.get(`http://localhost:5000/conversations?user_id=${userId}`);
+      setConversations(response.data.conversations);
+    } catch (error) {
+      console.error('Error loading conversations:', error);
+    }
+  };
+
+  const loadConversation = async (conversationId) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/conversations/${conversationId}?user_id=${userId}`);
+      const conversation = response.data.conversation;
+      
+      // تحويل الرسائل إلى التنسيق المطلوب
+      const formattedMessages = conversation.messages.map(msg => ({
+        id: msg.id,
+        text: msg.text,
+        sender: msg.sender,
+        timestamp: new Date(msg.timestamp)
+      }));
+      
+      setMessages(formattedMessages);
+      setCurrentConversationId(conversationId);
+      setShowConversations(false);
+    } catch (error) {
+      console.error('Error loading conversation:', error);
+    }
+  };
+
+  const deleteConversation = async (conversationId) => {
+    try {
+      await axios.delete(`http://localhost:5000/conversations/${conversationId}?user_id=${userId}`);
+      await loadConversations();
+      
+      // إذا كان المحادثة المحذوفة هي المحادثة الحالية، امسح الرسائل
+      if (currentConversationId === conversationId) {
+        setMessages([
+          {
+            id: Date.now(),
+            text: "تم مسح المحادثة. مرحباً بك من جديد في المساعد التعليمي الذكي لمؤسسة قدها! 🎓\n\nكيف يمكنني مساعدتك اليوم؟",
+            sender: 'bot',
+            timestamp: new Date(),
+          }
+        ]);
+        setCurrentConversationId(null);
+      }
+    } catch (error) {
+      console.error('Error deleting conversation:', error);
+    }
+  };
+
+  const startNewConversation = () => {
+    setMessages([
+      {
+        id: Date.now(),
+        text: "مرحباً بك في محادثة جديدة! 🎓\n\nكيف يمكنني مساعدتك اليوم؟",
+        sender: 'bot',
+        timestamp: new Date(),
+      }
+    ]);
+    setCurrentConversationId(null);
+    setShowConversations(false);
+  };
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
@@ -242,26 +384,43 @@ function App() {
     setInputMessage('');
     setIsLoading(true);
     setMessageCount(prev => prev + 1);
+    setIsSlowConnection(false);
+
+    // بدء مؤقت لبطء الاتصال
+    const slowConnectionTimer = setTimeout(() => {
+      setIsSlowConnection(true);
+    }, 3000);
 
     try {
       // Send request in the exact format expected by the backend
       const response = await axios.post('http://localhost:5000/chat', {
         message: inputMessage,
-        session_id: sessionId
+        user_id: userId,
+        conversation_id: currentConversationId
       }, {
-        timeout: 30000 // 30 second timeout for model responses
+        timeout: 60000 // 60 second timeout for model responses
       });
+
+      clearTimeout(slowConnectionTimer);
+      setLoadingProgress(100);
 
       // Handle response from the backend model
       const botMessage = {
-        id: Date.now() + 1,
+        id: response.data.message_id,
         text: response.data.response,
         sender: 'bot',
         timestamp: new Date(),
       };
 
       setMessages(prev => [...prev, botMessage]);
+      
+      // تحديث معرف المحادثة إذا كان جديداً
+      if (response.data.conversation_id && !currentConversationId) {
+        setCurrentConversationId(response.data.conversation_id);
+        await loadConversations();
+      }
     } catch (error) {
+      clearTimeout(slowConnectionTimer);
       console.error('Error sending message:', error);
       let errorText = "عذراً، حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى أو التواصل مع الدعم الفني.";
       
@@ -282,6 +441,8 @@ function App() {
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
+      setIsSlowConnection(false);
+      setLoadingProgress(0);
     }
   };
 
@@ -327,56 +488,6 @@ function App() {
     setInputMessage(question);
   };
 
-  const retryConnection = async () => {
-    await testBackendConnection();
-  };
-
-  // Test backend connection and model integration
-  const testBackendConnection = async () => {
-    try {
-      setBackendStatus('checking');
-      const response = await axios.get('http://localhost:5000/health', {
-        timeout: 5000
-      });
-      console.log('Backend connection successful:', response.data);
-      setBackendStatus('connected');
-      setBackendInfo(response.data);
-      return true;
-    } catch (error) {
-      console.error('Backend connection failed:', error);
-      setBackendStatus('error');
-      setBackendInfo({
-        error: error.message,
-        details: error.response?.data || 'Connection timeout or server not running'
-      });
-      return false;
-    }
-  };
-
-  // Test the model with a sample question
-  const testModel = async () => {
-    try {
-      const testResponse = await axios.post('http://localhost:5000/chat', {
-        message: "ما هو 2 + 2؟",
-        session_id: "test-session"
-      }, {
-        timeout: 10000
-      });
-      console.log('Model test successful:', testResponse.data);
-      return true;
-    } catch (error) {
-      console.error('Model test failed:', error);
-      return false;
-    }
-  };
-
-  // Test connection on component mount
-  useEffect(() => {
-    testBackendConnection();
-    // Uncomment the line below to test the model on startup
-    // testModel();
-  }, []);
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -397,51 +508,38 @@ function App() {
               <BotIcon sx={{ fontSize: 28 }} />
             </Badge>
             
-            {/* Connection Status Indicator */}
-            <Box sx={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              mr: 2,
-              borderRadius: 1,
-              px: 1,
-              py: 0.5,
-              backgroundColor: backendStatus === 'connected' ? 'rgba(34, 197, 94, 0.1)' : 
-                              backendStatus === 'error' ? 'rgba(239, 68, 68, 0.1)' : 
-                              'rgba(245, 158, 11, 0.1)',
-              border: `1px solid ${
-                backendStatus === 'connected' ? 'rgba(34, 197, 94, 0.3)' : 
-                backendStatus === 'error' ? 'rgba(239, 68, 68, 0.3)' : 
-                'rgba(245, 158, 11, 0.3)'
-              }`
-            }}>
-              <Box sx={{
-                width: 8,
-                height: 8,
-                borderRadius: '50%',
-                backgroundColor: backendStatus === 'connected' ? '#22c55e' : 
-                                backendStatus === 'error' ? '#ef4444' : '#f59e0b',
-                mr: 0.5,
-                animation: backendStatus === 'checking' ? 'pulse 1.5s infinite' : 'none',
-                '@keyframes pulse': {
-                  '0%': { opacity: 1 },
-                  '50%': { opacity: 0.5 },
-                  '100%': { opacity: 1 }
+            <IconButton 
+              color="inherit" 
+              onClick={() => setShowConversations(!showConversations)} 
+              title="إدارة المحادثات"
+              sx={{ 
+                '&:hover': { 
+                  transform: 'scale(1.1)',
+                  transition: 'transform 0.3s ease'
                 }
-              }} />
-              <Typography variant="caption" sx={{ 
-                fontSize: '0.7rem',
-                fontWeight: 600,
-                color: backendStatus === 'connected' ? '#22c55e' : 
-                       backendStatus === 'error' ? '#ef4444' : '#f59e0b'
-              }}>
-                {backendStatus === 'connected' ? 'متصل' : 
-                 backendStatus === 'error' ? 'غير متصل' : 'جاري الاتصال...'}
-              </Typography>
-            </Box>
+              }}
+            >
+              <HistoryIcon />
+            </IconButton>
+            
+            <IconButton 
+              color="inherit" 
+              onClick={startNewConversation} 
+              title="محادثة جديدة"
+              sx={{ 
+                '&:hover': { 
+                  transform: 'scale(1.1)',
+                  transition: 'transform 0.3s ease'
+                }
+              }}
+            >
+              <AddIcon />
+            </IconButton>
+            
             <IconButton 
               color="inherit" 
               onClick={clearChat} 
-              title="مسح المحادثة"
+              title="مسح المحادثة الحالية"
               sx={{ 
                 '&:hover': { 
                   transform: 'rotate(180deg)',
@@ -540,9 +638,187 @@ function App() {
                   <InfoIcon sx={{ fontSize: { xs: 18, sm: 20, md: 22 } }} />
                 </Button>
 
+                {/* Conversations Panel */}
+                {showConversations && (
+                  <Box
+                    ref={conversationsPanelRef}
+                    sx={{
+                      position: 'absolute',
+                      top: { xs: 6, sm: 8, md: 10 },
+                      right: { xs: 6, sm: 8, md: 10 },
+                      zIndex: 9,
+                      backgroundColor: 'white',
+                      borderRadius: 3,
+                      border: '1px solid #e2e8f0',
+                      boxShadow: '0 8px 25px rgba(0, 0, 0, 0.15)',
+                      p: { xs: 2, sm: 2.5, md: 3 },
+                      maxWidth: { xs: '280px', sm: '320px', md: '360px' },
+                      minWidth: { xs: '260px', sm: '300px', md: '340px' },
+                      maxHeight: 'calc(100vh - 120px)',
+                      overflow: 'auto'
+                    }}
+                  >
+                    {/* Header */}
+                    <Box sx={{ 
+                      textAlign: 'center', 
+                      mb: { xs: 1.5, sm: 2, md: 2.5 },
+                      p: { xs: 1.5, sm: 2, md: 2.5 },
+                      background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%)',
+                      borderRadius: 2,
+                      border: '1px solid rgba(30, 64, 175, 0.1)'
+                    }}>
+                      <HistoryIcon sx={{ 
+                        fontSize: { xs: 24, sm: 28, md: 32 }, 
+                        color: 'primary.main',
+                        mb: 1
+                      }} />
+                      
+                      <Typography variant="h6" gutterBottom sx={{ 
+                        fontWeight: 800,
+                        color: 'primary.main',
+                        fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
+                        mb: 0.5
+                      }}>
+                        محادثاتي
+                      </Typography>
+                      
+                      <Typography variant="body2" color="text.secondary" sx={{ 
+                        lineHeight: 1.5,
+                        fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.8rem' },
+                        fontWeight: 500
+                      }}>
+                        إدارة المحادثات السابقة
+                      </Typography>
+                    </Box>
+                    
+                    <Divider sx={{ mb: { xs: 1.5, sm: 2, md: 2.5 }, borderColor: 'rgba(30, 64, 175, 0.2)' }} />
+                    
+                    {/* Conversations List */}
+                    <Box sx={{ mb: { xs: 1.5, sm: 2, md: 2.5 } }}>
+                      {conversations.length === 0 ? (
+                        <Box sx={{ 
+                          textAlign: 'center', 
+                          py: { xs: 2, sm: 3, md: 4 },
+                          color: 'text.secondary'
+                        }}>
+                          <ChatIcon sx={{ 
+                            fontSize: { xs: 32, sm: 40, md: 48 }, 
+                            mb: 1,
+                            opacity: 0.5
+                          }} />
+                          <Typography variant="body2" sx={{ 
+                            fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.8rem' }
+                          }}>
+                            لا توجد محادثات سابقة
+                          </Typography>
+                        </Box>
+                      ) : (
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                          {conversations.map((conversation) => (
+                                                         <Box
+                               key={conversation._id}
+                               onClick={() => loadConversation(conversation._id)}
+                               sx={{
+                                 p: { xs: 1, sm: 1.2, md: 1.5 },
+                                 borderRadius: 2,
+                                 border: currentConversationId === conversation._id 
+                                   ? '2px solid #1e40af' 
+                                   : '1px solid #e2e8f0',
+                                 backgroundColor: currentConversationId === conversation._id 
+                                   ? 'rgba(30, 64, 175, 0.05)' 
+                                   : 'white',
+                                 cursor: 'pointer',
+                                 transition: 'all 0.2s ease',
+                                 '&:hover': {
+                                   backgroundColor: 'rgba(30, 64, 175, 0.08)',
+                                   transform: 'translateY(-1px)',
+                                   boxShadow: '0 2px 8px rgba(30, 64, 175, 0.15)',
+                                 }
+                               }}
+                             >
+                              <Box sx={{ 
+                                display: 'flex', 
+                                justifyContent: 'space-between', 
+                                alignItems: 'flex-start',
+                                mb: 0.5
+                              }}>
+                                <Typography variant="body2" sx={{ 
+                                  fontWeight: 600,
+                                  fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.8rem' },
+                                  color: 'primary.main',
+                                  flex: 1,
+                                  textAlign: 'right'
+                                }}>
+                                  {conversation.title}
+                                </Typography>
+                                
+                                <IconButton
+                                  size="small"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    deleteConversation(conversation._id);
+                                  }}
+                                  sx={{
+                                    color: '#ef4444',
+                                    '&:hover': {
+                                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                                    }
+                                  }}
+                                >
+                                  <DeleteIcon sx={{ fontSize: 16 }} />
+                                </IconButton>
+                              </Box>
+                              
+                              <Box sx={{ 
+                                display: 'flex', 
+                                justifyContent: 'space-between', 
+                                alignItems: 'center'
+                              }}>
+                                <Typography variant="caption" sx={{ 
+                                  fontSize: { xs: '0.6rem', sm: '0.65rem', md: '0.7rem' },
+                                  color: 'text.secondary'
+                                }}>
+                                  {conversation.message_count} رسالة
+                                </Typography>
+                                
+                                <Typography variant="caption" sx={{ 
+                                  fontSize: { xs: '0.6rem', sm: '0.65rem', md: '0.7rem' },
+                                  color: 'text.secondary'
+                                }}>
+                                  {new Date(conversation.updated_at).toLocaleDateString('ar-SA')}
+                                </Typography>
+                              </Box>
+                            </Box>
+                          ))}
+                        </Box>
+                      )}
+                    </Box>
+
+                    <Divider sx={{ my: { xs: 1.5, sm: 2, md: 2.5 }, borderColor: 'rgba(30, 64, 175, 0.2)' }} />
+
+                    {/* Actions */}
+                    <Box sx={{ display: 'flex', gap: 1 }}>
+                      <Button
+                        variant="contained"
+                        fullWidth
+                        onClick={startNewConversation}
+                        startIcon={<AddIcon />}
+                        sx={{ 
+                          borderRadius: 2,
+                          textTransform: 'none',
+                          fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.8rem' }
+                        }}
+                      >
+                        محادثة جديدة
+                      </Button>
+                    </Box>
+                  </Box>
+                )}
+
                 {/* About Summary - Next to Button */}
                 {showAbout && (
                   <Box
+                    ref={aboutPanelRef}
                     sx={{
                       position: 'absolute',
                       top: { xs: 6, sm: 8, md: 10 },
@@ -1025,9 +1301,58 @@ function App() {
                           p: { xs: 1, sm: 1.5, md: 2 }, 
                           borderRadius: 1.5, 
                           background: 'white',
-                          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)'
+                          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)',
+                          minWidth: { xs: '200px', sm: '250px', md: '300px' }
                         }}>
-                          <CircularProgress size={{ xs: 16, sm: 18, md: 20 }} />
+                          {/* Loading Progress Bar */}
+                          <Box sx={{ mb: 1 }}>
+                            <LinearProgress 
+                              variant="determinate" 
+                              value={loadingProgress} 
+                              sx={{ 
+                                height: 4, 
+                                borderRadius: 2,
+                                backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                                '& .MuiLinearProgress-bar': {
+                                  background: 'linear-gradient(90deg, #1e40af 0%, #3b82f6 100%)',
+                                  borderRadius: 2
+                                }
+                              }} 
+                            />
+                          </Box>
+                          
+                          {/* Loading Text */}
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <CircularProgress size={16} sx={{ color: '#1e40af' }} />
+                            <Typography variant="body2" sx={{ 
+                              fontSize: { xs: '0.65rem', sm: '0.7rem', md: '0.75rem' },
+                              fontWeight: 500,
+                              color: '#1e40af'
+                            }}>
+                              {isSlowConnection ? (
+                                <>
+                                  <WifiOffIcon sx={{ fontSize: 14, mr: 0.5, color: '#f59e0b' }} />
+                                  جاري المعالجة... قد يستغرق وقتاً أطول
+                                </>
+                              ) : (
+                                <>
+                                  <SpeedIcon sx={{ fontSize: 14, mr: 0.5 }} />
+                                  جاري المعالجة...
+                                </>
+                              )}
+                            </Typography>
+                          </Box>
+                          
+                          {/* Progress Percentage */}
+                          <Typography variant="caption" sx={{ 
+                            display: 'block',
+                            mt: 0.5,
+                            fontSize: { xs: '0.55rem', sm: '0.6rem', md: '0.65rem' },
+                            color: 'text.secondary',
+                            fontWeight: 600
+                          }}>
+                            {Math.round(loadingProgress)}% مكتمل
+                          </Typography>
                         </Box>
                       </Box>
                     </Fade>

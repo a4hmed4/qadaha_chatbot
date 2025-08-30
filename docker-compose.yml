@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  # MongoDB Service
+  mongodb:
+    image: mongo:7.0
+    container_name: qadaha-mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - qadaha-network
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password123
+    volumes:
+      - mongodb-data:/data/db
+      - mongodb-config:/data/configdb
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    container_name: qadaha-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - qadaha-network
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - frontend-logs:/var/log/nginx
+
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.backend
+    container_name: qadaha-backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    networks:
+      - qadaha-network
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production
+      - FLASK_APP=app.py
+      - MONGODB_URI=mongodb://admin:password123@mongodb:27017/
+    volumes:
+      - ./backend/models:/app/models
+      - ./backend/resources:/app/resources
+      - ./backend/draft:/app/draft
+      - backend-logs:/app/logs
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+
+networks:
+  qadaha-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  mongodb-data:
+  mongodb-config:
+  frontend-logs:
+  backend-logs: 

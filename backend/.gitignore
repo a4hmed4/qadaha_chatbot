@@ -1,0 +1,6 @@
+#frontend/node_modules/
+/models/
+/resources/
+config.yaml
+/draft/
+
